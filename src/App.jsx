@@ -1,10 +1,25 @@
-import './CardProjeto'
-import { useState } from 'react'
-import CardProjeto from './CardProjeto'
+import { useState } from 'react';
+import CardProjeto from './CardProjeto';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [selecionado, setSelecionado] = useState(false);
+  
+  function Selecao() {
+    setSelecionado(!selecionado);
+  }
+
   return (
-    <CardProjeto titulo="MVP Tema" descricao = "Pessoas +50"/>
-  )
+    <>
+      <CardProjeto 
+        titulo1="MVP Tema Principal" 
+        descricao1="Pessoas +50"
+        titulo2="Time MVP"
+        descricao2="8 pessoas"
+        selecionado={selecionado}        
+        onAlternarSelecao={Selecao}
+      />
+    </>
+  );
 }
+
+export default App;
